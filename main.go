@@ -5,6 +5,7 @@ import (
 	"belajar-golang-restfull-api/controller"
 	"belajar-golang-restfull-api/exception"
 	"belajar-golang-restfull-api/helper"
+	"belajar-golang-restfull-api/middleware"
 	"belajar-golang-restfull-api/repository"
 	"belajar-golang-restfull-api/service"
 	"github.com/go-playground/validator/v10"
@@ -33,7 +34,7 @@ func main() {
 
 	server := http.Server{
 		Addr:    ":3000",
-		Handler: router,
+		Handler: middleware.NewAuthMiddleware(router),
 	}
 
 	err := server.ListenAndServe()

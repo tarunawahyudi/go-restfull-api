@@ -1,6 +1,7 @@
 ### Get all categories
 GET http://localhost:3000/api/categories
 Accept: application/json
+X-API-Key: secret
 
 ### Create new category
 POST http://localhost:3000/api/categories
